@@ -8,12 +8,8 @@ import * as Stonfi from "../../../../index.js";
  * @example
  *     {
  *         provision_type: "Initial",
- *         pool_address: "EQCGScrZe1xbyWqWDvdI6mzP-GAcAWFv6ZXuaJOuSqemxku4",
- *         wallet_address: "UQDYzZmfsrGzhObKJUw4gzdeIxEai3jAFbiGKGwxvxHinf4K",
  *         token_a: "EQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAM9c",
  *         token_b: "EQCxE6mUtQJKFnGfaROTKOt1lZbDiiX1kCixRv7Nw2Id_sDs",
- *         token_a_units: "10",
- *         token_b_units: "10",
  *         slippage_tolerance: "0.001"
  *     }
  */
@@ -29,12 +25,12 @@ export interface DexSimulateLiquidityProvisionRequest {
      * Required for Balanced/Arbitrary provision.
      * Specifies existing pool address for liquidity operations.
      */
-    pool_address?: string;
+    pool_address?: string | null;
     /**
      * User's wallet address for balance checks (optional).
      * When provided, returns current LP account balances if exists.
      */
-    wallet_address?: string;
+    wallet_address?: string | null;
     /**
      * Token A address for the liquidity pair (always required)
      */
@@ -48,13 +44,13 @@ export interface DexSimulateLiquidityProvisionRequest {
      * - Initial/Arbitrary: REQUIRED
      * - Balanced: Provide EITHER this OR token_b_units (auto-calculates the other)
      */
-    token_a_units?: string;
+    token_a_units?: string | null;
     /**
      * Token B amount rules:
      * - Initial/Arbitrary: REQUIRED
      * - Balanced: Provide EITHER this OR token_a_units (auto-calculates the other)
      */
-    token_b_units?: string;
+    token_b_units?: string | null;
     /**
      * Maximum acceptable price impact (0.001 = 0.1%).
      * Affects minimum liquidity thresholds in response.

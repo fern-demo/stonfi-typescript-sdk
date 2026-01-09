@@ -4,18 +4,15 @@
 
 /**
  * @example
- *     {
- *         since: "2023-06-01T12:34:56",
- *         until: "2023-06-02T23:59:59"
- *     }
+ *     {}
  */
 export interface GetDexStatsRequest {
     /**
      * Time since stats are requested (YYYY-MM-DDTHH:MM:SS)
      */
-    since?: string;
+    since?: string | null;
     /**
      * Time until stats are requested (YYYY-MM-DDTHH:MM:SS)
      */
-    until?: string;
+    until?: string | null;
 }

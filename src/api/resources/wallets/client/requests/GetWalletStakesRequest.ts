@@ -8,10 +8,6 @@
  *         addr_str: "addr_str"
  *     }
  */
-export interface GetWalletPoolsRequest {
+export interface GetWalletStakesRequest {
     addr_str: string;
-    /**
-     * If true V2 pools will be present in the response. Default: true
-     */
-    dex_v2?: boolean | null;
 }

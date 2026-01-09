@@ -8,5 +8,5 @@ export interface GasParamsSchema {
     /** Forward TON amount for transaction */
     forward_gas: string;
     /** Optional TON gas budget for transaction */
-    gas_budget?: string;
+    gas_budget?: string | null;
 }

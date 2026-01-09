@@ -10,6 +10,6 @@ export interface StakeNft {
     staked_tokens: string;
     staking_timestamp: string;
     status: string;
-    unstake_timestamp?: string;
+    unstake_timestamp?: string | null;
     voting_power: string;
 }

@@ -10,7 +10,7 @@ export interface PoolQueryRequest {
     /**
      * Condition
      */
-    condition?: string;
+    condition?: string | null;
     /**
      * Unconditional assets
      */
@@ -18,9 +18,9 @@ export interface PoolQueryRequest {
     /**
      * Wallet address
      */
-    wallet_address?: string;
+    wallet_address?: string | null;
     /**
      * If true V2 pools will be present in the response. Default: true
      */
-    dex_v2?: string;
+    dex_v2?: string | null;
 }

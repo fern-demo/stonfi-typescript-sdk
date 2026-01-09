@@ -4,7 +4,7 @@
 
 export interface AssetInfoScreenerSchema {
     /** Circulationg supply */
-    circulatingSupply?: string;
+    circulatingSupply?: string | null;
     /** Address of smart contract */
     id: string;
     /** Displayable name */

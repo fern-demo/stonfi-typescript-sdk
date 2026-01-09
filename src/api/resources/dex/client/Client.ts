@@ -112,7 +112,7 @@ export class Dex {
     ): Promise<core.WithRawResponse<Stonfi.AssetQueryResponse>> {
         const { condition, unconditional_asset: unconditionalAsset, wallet_address: walletAddress } = request;
         const _queryParams: Record<string, string | string[] | object | object[] | null> = {};
-        if (condition != null) {
+        if (condition !== undefined) {
             _queryParams["condition"] = condition;
         }
 
@@ -124,7 +124,7 @@ export class Dex {
             }
         }
 
-        if (walletAddress != null) {
+        if (walletAddress !== undefined) {
             _queryParams["wallet_address"] = walletAddress;
         }
 
@@ -199,7 +199,7 @@ export class Dex {
         } = request;
         const _queryParams: Record<string, string | string[] | object | object[] | null> = {};
         _queryParams["search_string"] = searchString;
-        if (condition != null) {
+        if (condition !== undefined) {
             _queryParams["condition"] = condition;
         }
 
@@ -211,11 +211,11 @@ export class Dex {
             }
         }
 
-        if (limit != null) {
-            _queryParams["limit"] = limit.toString();
+        if (limit !== undefined) {
+            _queryParams["limit"] = limit?.toString() ?? null;
         }
 
-        if (walletAddress != null) {
+        if (walletAddress !== undefined) {
             _queryParams["wallet_address"] = walletAddress;
         }
 
@@ -262,23 +262,26 @@ export class Dex {
     }
 
     /**
-     * @param {string} addrStr
+     * @param {Stonfi.GetAssetRequest} request
      * @param {Dex.RequestOptions} requestOptions - Request-specific configuration.
      *
      * @example
-     *     await client.dex.getAsset("addr_str")
+     *     await client.dex.getAsset({
+     *         addr_str: "addr_str"
+     *     })
      */
     public getAsset(
-        addrStr: string,
+        request: Stonfi.GetAssetRequest,
         requestOptions?: Dex.RequestOptions,
     ): core.HttpResponsePromise<Stonfi.GetAssetResponse> {
-        return core.HttpResponsePromise.fromPromise(this.__getAsset(addrStr, requestOptions));
+        return core.HttpResponsePromise.fromPromise(this.__getAsset(request, requestOptions));
     }
 
     private async __getAsset(
-        addrStr: string,
+        request: Stonfi.GetAssetRequest,
         requestOptions?: Dex.RequestOptions,
     ): Promise<core.WithRawResponse<Stonfi.GetAssetResponse>> {
+        const { addr_str: addrStr } = request;
         const _response = await core.fetcher({
             url: core.url.join(
                 (await core.Supplier.get(this._options.baseUrl)) ??
@@ -340,12 +343,12 @@ export class Dex {
     ): Promise<core.WithRawResponse<Stonfi.GetFarmListResponse>> {
         const { dex_v2: dexV2, only_active: onlyActive } = request;
         const _queryParams: Record<string, string | string[] | object | object[] | null> = {};
-        if (dexV2 != null) {
-            _queryParams["dex_v2"] = dexV2.toString();
+        if (dexV2 !== undefined) {
+            _queryParams["dex_v2"] = dexV2?.toString() ?? null;
         }
 
-        if (onlyActive != null) {
-            _queryParams["only_active"] = onlyActive.toString();
+        if (onlyActive !== undefined) {
+            _queryParams["only_active"] = onlyActive?.toString() ?? null;
         }
 
         const _response = await core.fetcher({
@@ -391,23 +394,26 @@ export class Dex {
     }
 
     /**
-     * @param {string} poolAddrStr
+     * @param {Stonfi.GetFarmsByPoolRequest} request
      * @param {Dex.RequestOptions} requestOptions - Request-specific configuration.
      *
      * @example
-     *     await client.dex.getFarmsByPool("pool_addr_str")
+     *     await client.dex.getFarmsByPool({
+     *         pool_addr_str: "pool_addr_str"
+     *     })
      */
     public getFarmsByPool(
-        poolAddrStr: string,
+        request: Stonfi.GetFarmsByPoolRequest,
         requestOptions?: Dex.RequestOptions,
     ): core.HttpResponsePromise<Stonfi.GetFarmsByPoolResponse> {
-        return core.HttpResponsePromise.fromPromise(this.__getFarmsByPool(poolAddrStr, requestOptions));
+        return core.HttpResponsePromise.fromPromise(this.__getFarmsByPool(request, requestOptions));
     }
 
     private async __getFarmsByPool(
-        poolAddrStr: string,
+        request: Stonfi.GetFarmsByPoolRequest,
         requestOptions?: Dex.RequestOptions,
     ): Promise<core.WithRawResponse<Stonfi.GetFarmsByPoolResponse>> {
+        const { pool_addr_str: poolAddrStr } = request;
         const _response = await core.fetcher({
             url: core.url.join(
                 (await core.Supplier.get(this._options.baseUrl)) ??
@@ -452,23 +458,26 @@ export class Dex {
     }
 
     /**
-     * @param {string} addrStr
+     * @param {Stonfi.GetFarmRequest} request
      * @param {Dex.RequestOptions} requestOptions - Request-specific configuration.
      *
      * @example
-     *     await client.dex.getFarm("addr_str")
+     *     await client.dex.getFarm({
+     *         addr_str: "addr_str"
+     *     })
      */
     public getFarm(
-        addrStr: string,
+        request: Stonfi.GetFarmRequest,
         requestOptions?: Dex.RequestOptions,
     ): core.HttpResponsePromise<Stonfi.GetFarmResponse> {
-        return core.HttpResponsePromise.fromPromise(this.__getFarm(addrStr, requestOptions));
+        return core.HttpResponsePromise.fromPromise(this.__getFarm(request, requestOptions));
     }
 
     private async __getFarm(
-        addrStr: string,
+        request: Stonfi.GetFarmRequest,
         requestOptions?: Dex.RequestOptions,
     ): Promise<core.WithRawResponse<Stonfi.GetFarmResponse>> {
+        const { addr_str: addrStr } = request;
         const _response = await core.fetcher({
             url: core.url.join(
                 (await core.Supplier.get(this._options.baseUrl)) ??
@@ -517,12 +526,8 @@ export class Dex {
      * @example
      *     await client.dex.simulateLiquidityProvision({
      *         provision_type: "Initial",
-     *         pool_address: "EQCGScrZe1xbyWqWDvdI6mzP-GAcAWFv6ZXuaJOuSqemxku4",
-     *         wallet_address: "UQDYzZmfsrGzhObKJUw4gzdeIxEai3jAFbiGKGwxvxHinf4K",
      *         token_a: "EQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAM9c",
      *         token_b: "EQCxE6mUtQJKFnGfaROTKOt1lZbDiiX1kCixRv7Nw2Id_sDs",
-     *         token_a_units: "10",
-     *         token_b_units: "10",
      *         slippage_tolerance: "0.001"
      *     })
      */
@@ -549,21 +554,21 @@ export class Dex {
         } = request;
         const _queryParams: Record<string, string | string[] | object | object[] | null> = {};
         _queryParams["provision_type"] = provisionType;
-        if (poolAddress != null) {
+        if (poolAddress !== undefined) {
             _queryParams["pool_address"] = poolAddress;
         }
 
-        if (walletAddress != null) {
+        if (walletAddress !== undefined) {
             _queryParams["wallet_address"] = walletAddress;
         }
 
         _queryParams["token_a"] = tokenA;
         _queryParams["token_b"] = tokenB;
-        if (tokenAUnits != null) {
+        if (tokenAUnits !== undefined) {
             _queryParams["token_a_units"] = tokenAUnits;
         }
 
-        if (tokenBUnits != null) {
+        if (tokenBUnits !== undefined) {
             _queryParams["token_b_units"] = tokenBUnits;
         }
 
@@ -635,8 +640,8 @@ export class Dex {
     ): Promise<core.WithRawResponse<Stonfi.GetMarketListResponse>> {
         const { dex_v2: dexV2 } = request;
         const _queryParams: Record<string, string | string[] | object | object[] | null> = {};
-        if (dexV2 != null) {
-            _queryParams["dex_v2"] = dexV2.toString();
+        if (dexV2 !== undefined) {
+            _queryParams["dex_v2"] = dexV2?.toString() ?? null;
         }
 
         const _response = await core.fetcher({
@@ -706,7 +711,7 @@ export class Dex {
             dex_v2: dexV2,
         } = request;
         const _queryParams: Record<string, string | string[] | object | object[] | null> = {};
-        if (condition != null) {
+        if (condition !== undefined) {
             _queryParams["condition"] = condition;
         }
 
@@ -718,11 +723,11 @@ export class Dex {
             }
         }
 
-        if (walletAddress != null) {
+        if (walletAddress !== undefined) {
             _queryParams["wallet_address"] = walletAddress;
         }
 
-        if (dexV2 != null) {
+        if (dexV2 !== undefined) {
             _queryParams["dex_v2"] = dexV2;
         }
 
@@ -788,8 +793,8 @@ export class Dex {
     ): Promise<core.WithRawResponse<Stonfi.GetPoolListResponse>> {
         const { dex_v2: dexV2 } = request;
         const _queryParams: Record<string, string | string[] | object | object[] | null> = {};
-        if (dexV2 != null) {
-            _queryParams["dex_v2"] = dexV2.toString();
+        if (dexV2 !== undefined) {
+            _queryParams["dex_v2"] = dexV2?.toString() ?? null;
         }
 
         const _response = await core.fetcher({
@@ -835,28 +840,27 @@ export class Dex {
     }
 
     /**
-     * @param {string} asset0AddrStr
-     * @param {string} asset1AddrStr
+     * @param {Stonfi.GetPoolListByMarketRequest} request
      * @param {Dex.RequestOptions} requestOptions - Request-specific configuration.
      *
      * @example
-     *     await client.dex.getPoolListByMarket("asset_0_addr_str", "asset_1_addr_str")
+     *     await client.dex.getPoolListByMarket({
+     *         asset_0_addr_str: "asset_0_addr_str",
+     *         asset_1_addr_str: "asset_1_addr_str"
+     *     })
      */
     public getPoolListByMarket(
-        asset0AddrStr: string,
-        asset1AddrStr: string,
+        request: Stonfi.GetPoolListByMarketRequest,
         requestOptions?: Dex.RequestOptions,
     ): core.HttpResponsePromise<Stonfi.GetPoolListByMarketResponse> {
-        return core.HttpResponsePromise.fromPromise(
-            this.__getPoolListByMarket(asset0AddrStr, asset1AddrStr, requestOptions),
-        );
+        return core.HttpResponsePromise.fromPromise(this.__getPoolListByMarket(request, requestOptions));
     }
 
     private async __getPoolListByMarket(
-        asset0AddrStr: string,
-        asset1AddrStr: string,
+        request: Stonfi.GetPoolListByMarketRequest,
         requestOptions?: Dex.RequestOptions,
     ): Promise<core.WithRawResponse<Stonfi.GetPoolListByMarketResponse>> {
+        const { asset_0_addr_str: asset0AddrStr, asset_1_addr_str: asset1AddrStr } = request;
         const _response = await core.fetcher({
             url: core.url.join(
                 (await core.Supplier.get(this._options.baseUrl)) ??
@@ -901,23 +905,26 @@ export class Dex {
     }
 
     /**
-     * @param {string} addrStr
+     * @param {Stonfi.GetPoolRequest} request
      * @param {Dex.RequestOptions} requestOptions - Request-specific configuration.
      *
      * @example
-     *     await client.dex.getPool("addr_str")
+     *     await client.dex.getPool({
+     *         addr_str: "addr_str"
+     *     })
      */
     public getPool(
-        addrStr: string,
+        request: Stonfi.GetPoolRequest,
         requestOptions?: Dex.RequestOptions,
     ): core.HttpResponsePromise<Stonfi.GetPoolResponse> {
-        return core.HttpResponsePromise.fromPromise(this.__getPool(addrStr, requestOptions));
+        return core.HttpResponsePromise.fromPromise(this.__getPool(request, requestOptions));
     }
 
     private async __getPool(
-        addrStr: string,
+        request: Stonfi.GetPoolRequest,
         requestOptions?: Dex.RequestOptions,
     ): Promise<core.WithRawResponse<Stonfi.GetPoolResponse>> {
+        const { addr_str: addrStr } = request;
         const _response = await core.fetcher({
             url: core.url.join(
                 (await core.Supplier.get(this._options.baseUrl)) ??
@@ -968,8 +975,7 @@ export class Dex {
      *         offer_address: "EQBynBO23ywHy_CgarY9NK9FTz0yDsG82PtcbSTQgGoXwiuA",
      *         ask_address: "EQCM3B12QK1e4yZSf8GtBRT0aLMNyEsBc_DhVfRRtOEffLez",
      *         units: "300",
-     *         slippage_tolerance: "0.001",
-     *         pool_address: "EQAKleHU6-eGDQUfi4YXMNve4UQP0RGAIRkU4AiRRlgDUbaM"
+     *         slippage_tolerance: "0.001"
      *     })
      */
     public reverseSimulateSwapUtoipa(
@@ -999,20 +1005,20 @@ export class Dex {
         _queryParams["ask_address"] = askAddress;
         _queryParams["units"] = units;
         _queryParams["slippage_tolerance"] = slippageTolerance;
-        if (poolAddress != null) {
+        if (poolAddress !== undefined) {
             _queryParams["pool_address"] = poolAddress;
         }
 
-        if (referralAddress != null) {
+        if (referralAddress !== undefined) {
             _queryParams["referral_address"] = referralAddress;
         }
 
-        if (referralFeeBps != null) {
+        if (referralFeeBps !== undefined) {
             _queryParams["referral_fee_bps"] = referralFeeBps;
         }
 
-        if (dexV2 != null) {
-            _queryParams["dex_v2"] = dexV2.toString();
+        if (dexV2 !== undefined) {
+            _queryParams["dex_v2"] = dexV2?.toString() ?? null;
         }
 
         if (dexVersion != null) {
@@ -1088,8 +1094,8 @@ export class Dex {
     ): Promise<core.WithRawResponse<Stonfi.GetRouterListResponse>> {
         const { dex_v2: dexV2 } = request;
         const _queryParams: Record<string, string | string[] | object | object[] | null> = {};
-        if (dexV2 != null) {
-            _queryParams["dex_v2"] = dexV2.toString();
+        if (dexV2 !== undefined) {
+            _queryParams["dex_v2"] = dexV2?.toString() ?? null;
         }
 
         const _response = await core.fetcher({
@@ -1135,23 +1141,26 @@ export class Dex {
     }
 
     /**
-     * @param {string} addrStr
+     * @param {Stonfi.GetRouterRequest} request
      * @param {Dex.RequestOptions} requestOptions - Request-specific configuration.
      *
      * @example
-     *     await client.dex.getRouter("addr_str")
+     *     await client.dex.getRouter({
+     *         addr_str: "addr_str"
+     *     })
      */
     public getRouter(
-        addrStr: string,
+        request: Stonfi.GetRouterRequest,
         requestOptions?: Dex.RequestOptions,
     ): core.HttpResponsePromise<Stonfi.GetRouterResponse> {
-        return core.HttpResponsePromise.fromPromise(this.__getRouter(addrStr, requestOptions));
+        return core.HttpResponsePromise.fromPromise(this.__getRouter(request, requestOptions));
     }
 
     private async __getRouter(
-        addrStr: string,
+        request: Stonfi.GetRouterRequest,
         requestOptions?: Dex.RequestOptions,
     ): Promise<core.WithRawResponse<Stonfi.GetRouterResponse>> {
+        const { addr_str: addrStr } = request;
         const _response = await core.fetcher({
             url: core.url.join(
                 (await core.Supplier.get(this._options.baseUrl)) ??
@@ -1202,8 +1211,7 @@ export class Dex {
      *         offer_address: "EQBynBO23ywHy_CgarY9NK9FTz0yDsG82PtcbSTQgGoXwiuA",
      *         ask_address: "EQCM3B12QK1e4yZSf8GtBRT0aLMNyEsBc_DhVfRRtOEffLez",
      *         units: "300",
-     *         slippage_tolerance: "0.001",
-     *         pool_address: "EQAKleHU6-eGDQUfi4YXMNve4UQP0RGAIRkU4AiRRlgDUbaM"
+     *         slippage_tolerance: "0.001"
      *     })
      */
     public simulateSwapUtoipa(
@@ -1233,20 +1241,20 @@ export class Dex {
         _queryParams["ask_address"] = askAddress;
         _queryParams["units"] = units;
         _queryParams["slippage_tolerance"] = slippageTolerance;
-        if (poolAddress != null) {
+        if (poolAddress !== undefined) {
             _queryParams["pool_address"] = poolAddress;
         }
 
-        if (referralAddress != null) {
+        if (referralAddress !== undefined) {
             _queryParams["referral_address"] = referralAddress;
         }
 
-        if (referralFeeBps != null) {
+        if (referralFeeBps !== undefined) {
             _queryParams["referral_fee_bps"] = referralFeeBps;
         }
 
-        if (dexV2 != null) {
-            _queryParams["dex_v2"] = dexV2.toString();
+        if (dexV2 !== undefined) {
+            _queryParams["dex_v2"] = dexV2?.toString() ?? null;
         }
 
         if (dexVersion != null) {

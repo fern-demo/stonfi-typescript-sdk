@@ -4,7 +4,7 @@
 
 export interface TxId {
     /** Transaction's contract address */
-    contract_address?: string;
+    contract_address?: string | null;
     /** Transaction's hash */
     hash: string;
     /** Transaction's logical time */

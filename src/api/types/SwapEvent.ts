@@ -5,15 +5,15 @@
 import * as Stonfi from "../index.js";
 
 export interface SwapEvent {
-    amount0In?: string;
-    amount0Out?: string;
-    amount1In?: string;
-    amount1Out?: string;
+    amount0In?: string | null;
+    amount0Out?: string | null;
+    amount1In?: string | null;
+    amount1Out?: string | null;
     eventIndex: number;
     maker: string;
     pairId: string;
     priceNative: string;
-    reserves?: Stonfi.Reserves;
+    reserves?: Stonfi.Reserves | null;
     txnId: string;
     txnIndex: number;
 }

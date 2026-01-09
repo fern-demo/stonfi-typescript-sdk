@@ -1,3 +1,9 @@
+export { type GetWalletAssetsRequest } from "./GetWalletAssetsRequest.js";
+export { type GetWalletAssetRequest } from "./GetWalletAssetRequest.js";
 export { type GetWalletFarmsRequest } from "./GetWalletFarmsRequest.js";
+export { type GetWalletFarmRequest } from "./GetWalletFarmRequest.js";
+export { type GetFeeVaultsRequest } from "./GetFeeVaultsRequest.js";
 export { type GetWalletOperationsUtoipaRequest } from "./GetWalletOperationsUtoipaRequest.js";
 export { type GetWalletPoolsRequest } from "./GetWalletPoolsRequest.js";
+export { type GetWalletPoolRequest } from "./GetWalletPoolRequest.js";
+export { type GetWalletStakesRequest } from "./GetWalletStakesRequest.js";

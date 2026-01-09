@@ -5,6 +5,13 @@
 import * as Stonfi from "../index.js";
 
 export interface EventSchema {
-    eventType?: "swap";
+    eventType?: EventSchema.EventType;
     block: Stonfi.BlockSchema;
+}
+
+export namespace EventSchema {
+    export type EventType = "swap";
+    export const EventType = {
+        Swap: "swap",
+    } as const;
 }

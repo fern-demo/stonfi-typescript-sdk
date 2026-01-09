@@ -14,11 +14,11 @@ export interface DexSimulateLiquidityProvisionResponse {
     /** Estimated token b units */
     estimated_token_b_units: string;
     /** Existing LP account address (only present if wallet_address was provided and account exists) */
-    lp_account_address?: string;
+    lp_account_address?: string | null;
     /** Current Token A balance in LP account (if applicable) */
-    lp_account_token_a_balance?: string;
+    lp_account_token_a_balance?: string | null;
     /** Current Token B balance in LP account (if applicable) */
-    lp_account_token_b_balance?: string;
+    lp_account_token_b_balance?: string | null;
     /**
      * Total LP tokens in pool after operation:
      * - Initial: Always "0" (new pool)

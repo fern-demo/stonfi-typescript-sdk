@@ -42,7 +42,7 @@ await client.export.getCmcStats();
 </dl>
 </details>
 
-<details><summary><code>client.export.<a href="/src/api/resources/export/client/Client.ts">screenerAssetInfo</a>(address) -> Stonfi.ScreenerAssetInfoResponse</code></summary>
+<details><summary><code>client.export.<a href="/src/api/resources/export/client/Client.ts">screenerAssetInfo</a>({ ...params }) -> Stonfi.ScreenerAssetInfoResponse</code></summary>
 <dl>
 <dd>
 
@@ -55,7 +55,9 @@ await client.export.getCmcStats();
 <dd>
 
 ```typescript
-await client.export.screenerAssetInfo("address");
+await client.export.screenerAssetInfo({
+    address: "address",
+});
 ```
 
 </dd>
@@ -71,7 +73,7 @@ await client.export.screenerAssetInfo("address");
 <dl>
 <dd>
 
-**address:** `string`
+**request:** `Stonfi.ScreenerAssetInfoRequest`
 
 </dd>
 </dl>
@@ -181,7 +183,7 @@ await client.export.screenerLatestBlock();
 </dl>
 </details>
 
-<details><summary><code>client.export.<a href="/src/api/resources/export/client/Client.ts">screenerPoolInfo</a>(address) -> Stonfi.ScreenerPoolInfoResponse</code></summary>
+<details><summary><code>client.export.<a href="/src/api/resources/export/client/Client.ts">screenerPoolInfo</a>({ ...params }) -> Stonfi.ScreenerPoolInfoResponse</code></summary>
 <dl>
 <dd>
 
@@ -194,7 +196,9 @@ await client.export.screenerLatestBlock();
 <dd>
 
 ```typescript
-await client.export.screenerPoolInfo("address");
+await client.export.screenerPoolInfo({
+    address: "address",
+});
 ```
 
 </dd>
@@ -210,7 +214,7 @@ await client.export.screenerPoolInfo("address");
 <dl>
 <dd>
 
-**address:** `string`
+**request:** `Stonfi.ScreenerPoolInfoRequest`
 
 </dd>
 </dl>
@@ -369,7 +373,7 @@ await client.dex.assetSearch({
 </dl>
 </details>
 
-<details><summary><code>client.dex.<a href="/src/api/resources/dex/client/Client.ts">getAsset</a>(addrStr) -> Stonfi.GetAssetResponse</code></summary>
+<details><summary><code>client.dex.<a href="/src/api/resources/dex/client/Client.ts">getAsset</a>({ ...params }) -> Stonfi.GetAssetResponse</code></summary>
 <dl>
 <dd>
 
@@ -382,7 +386,9 @@ await client.dex.assetSearch({
 <dd>
 
 ```typescript
-await client.dex.getAsset("addr_str");
+await client.dex.getAsset({
+    addr_str: "addr_str",
+});
 ```
 
 </dd>
@@ -398,7 +404,7 @@ await client.dex.getAsset("addr_str");
 <dl>
 <dd>
 
-**addrStr:** `string`
+**request:** `Stonfi.GetAssetRequest`
 
 </dd>
 </dl>
@@ -465,7 +471,7 @@ await client.dex.getFarmList();
 </dl>
 </details>
 
-<details><summary><code>client.dex.<a href="/src/api/resources/dex/client/Client.ts">getFarmsByPool</a>(poolAddrStr) -> Stonfi.GetFarmsByPoolResponse</code></summary>
+<details><summary><code>client.dex.<a href="/src/api/resources/dex/client/Client.ts">getFarmsByPool</a>({ ...params }) -> Stonfi.GetFarmsByPoolResponse</code></summary>
 <dl>
 <dd>
 
@@ -478,7 +484,9 @@ await client.dex.getFarmList();
 <dd>
 
 ```typescript
-await client.dex.getFarmsByPool("pool_addr_str");
+await client.dex.getFarmsByPool({
+    pool_addr_str: "pool_addr_str",
+});
 ```
 
 </dd>
@@ -494,7 +502,7 @@ await client.dex.getFarmsByPool("pool_addr_str");
 <dl>
 <dd>
 
-**poolAddrStr:** `string`
+**request:** `Stonfi.GetFarmsByPoolRequest`
 
 </dd>
 </dl>
@@ -513,7 +521,7 @@ await client.dex.getFarmsByPool("pool_addr_str");
 </dl>
 </details>
 
-<details><summary><code>client.dex.<a href="/src/api/resources/dex/client/Client.ts">getFarm</a>(addrStr) -> Stonfi.GetFarmResponse</code></summary>
+<details><summary><code>client.dex.<a href="/src/api/resources/dex/client/Client.ts">getFarm</a>({ ...params }) -> Stonfi.GetFarmResponse</code></summary>
 <dl>
 <dd>
 
@@ -526,7 +534,9 @@ await client.dex.getFarmsByPool("pool_addr_str");
 <dd>
 
 ```typescript
-await client.dex.getFarm("addr_str");
+await client.dex.getFarm({
+    addr_str: "addr_str",
+});
 ```
 
 </dd>
@@ -542,7 +552,7 @@ await client.dex.getFarm("addr_str");
 <dl>
 <dd>
 
-**addrStr:** `string`
+**request:** `Stonfi.GetFarmRequest`
 
 </dd>
 </dl>
@@ -576,12 +586,8 @@ await client.dex.getFarm("addr_str");
 ```typescript
 await client.dex.simulateLiquidityProvision({
     provision_type: "Initial",
-    pool_address: "EQCGScrZe1xbyWqWDvdI6mzP-GAcAWFv6ZXuaJOuSqemxku4",
-    wallet_address: "UQDYzZmfsrGzhObKJUw4gzdeIxEai3jAFbiGKGwxvxHinf4K",
     token_a: "EQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAM9c",
     token_b: "EQCxE6mUtQJKFnGfaROTKOt1lZbDiiX1kCixRv7Nw2Id_sDs",
-    token_a_units: "10",
-    token_b_units: "10",
     slippage_tolerance: "0.001",
 });
 ```
@@ -762,7 +768,7 @@ await client.dex.getPoolList();
 </dl>
 </details>
 
-<details><summary><code>client.dex.<a href="/src/api/resources/dex/client/Client.ts">getPoolListByMarket</a>(asset0AddrStr, asset1AddrStr) -> Stonfi.GetPoolListByMarketResponse</code></summary>
+<details><summary><code>client.dex.<a href="/src/api/resources/dex/client/Client.ts">getPoolListByMarket</a>({ ...params }) -> Stonfi.GetPoolListByMarketResponse</code></summary>
 <dl>
 <dd>
 
@@ -775,7 +781,10 @@ await client.dex.getPoolList();
 <dd>
 
 ```typescript
-await client.dex.getPoolListByMarket("asset_0_addr_str", "asset_1_addr_str");
+await client.dex.getPoolListByMarket({
+    asset_0_addr_str: "asset_0_addr_str",
+    asset_1_addr_str: "asset_1_addr_str",
+});
 ```
 
 </dd>
@@ -791,15 +800,7 @@ await client.dex.getPoolListByMarket("asset_0_addr_str", "asset_1_addr_str");
 <dl>
 <dd>
 
-**asset0AddrStr:** `string`
-
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**asset1AddrStr:** `string`
+**request:** `Stonfi.GetPoolListByMarketRequest`
 
 </dd>
 </dl>
@@ -818,7 +819,7 @@ await client.dex.getPoolListByMarket("asset_0_addr_str", "asset_1_addr_str");
 </dl>
 </details>
 
-<details><summary><code>client.dex.<a href="/src/api/resources/dex/client/Client.ts">getPool</a>(addrStr) -> Stonfi.GetPoolResponse</code></summary>
+<details><summary><code>client.dex.<a href="/src/api/resources/dex/client/Client.ts">getPool</a>({ ...params }) -> Stonfi.GetPoolResponse</code></summary>
 <dl>
 <dd>
 
@@ -831,7 +832,9 @@ await client.dex.getPoolListByMarket("asset_0_addr_str", "asset_1_addr_str");
 <dd>
 
 ```typescript
-await client.dex.getPool("addr_str");
+await client.dex.getPool({
+    addr_str: "addr_str",
+});
 ```
 
 </dd>
@@ -847,7 +850,7 @@ await client.dex.getPool("addr_str");
 <dl>
 <dd>
 
-**addrStr:** `string`
+**request:** `Stonfi.GetPoolRequest`
 
 </dd>
 </dl>
@@ -884,7 +887,6 @@ await client.dex.reverseSimulateSwapUtoipa({
     ask_address: "EQCM3B12QK1e4yZSf8GtBRT0aLMNyEsBc_DhVfRRtOEffLez",
     units: "300",
     slippage_tolerance: "0.001",
-    pool_address: "EQAKleHU6-eGDQUfi4YXMNve4UQP0RGAIRkU4AiRRlgDUbaM",
 });
 ```
 
@@ -968,7 +970,7 @@ await client.dex.getRouterList();
 </dl>
 </details>
 
-<details><summary><code>client.dex.<a href="/src/api/resources/dex/client/Client.ts">getRouter</a>(addrStr) -> Stonfi.GetRouterResponse</code></summary>
+<details><summary><code>client.dex.<a href="/src/api/resources/dex/client/Client.ts">getRouter</a>({ ...params }) -> Stonfi.GetRouterResponse</code></summary>
 <dl>
 <dd>
 
@@ -981,7 +983,9 @@ await client.dex.getRouterList();
 <dd>
 
 ```typescript
-await client.dex.getRouter("addr_str");
+await client.dex.getRouter({
+    addr_str: "addr_str",
+});
 ```
 
 </dd>
@@ -997,7 +1001,7 @@ await client.dex.getRouter("addr_str");
 <dl>
 <dd>
 
-**addrStr:** `string`
+**request:** `Stonfi.GetRouterRequest`
 
 </dd>
 </dl>
@@ -1034,7 +1038,6 @@ await client.dex.simulateSwapUtoipa({
     ask_address: "EQCM3B12QK1e4yZSf8GtBRT0aLMNyEsBc_DhVfRRtOEffLez",
     units: "300",
     slippage_tolerance: "0.001",
-    pool_address: "EQAKleHU6-eGDQUfi4YXMNve4UQP0RGAIRkU4AiRRlgDUbaM",
 });
 ```
 
@@ -1124,7 +1127,7 @@ await client.dex.swapStatus({
 
 ## Jetton
 
-<details><summary><code>client.jetton.<a href="/src/api/resources/jetton/client/Client.ts">getWalletAddress</a>(addrStr, { ...params }) -> Stonfi.GetWalletAddressResponse</code></summary>
+<details><summary><code>client.jetton.<a href="/src/api/resources/jetton/client/Client.ts">getWalletAddress</a>({ ...params }) -> Stonfi.GetWalletAddressResponse</code></summary>
 <dl>
 <dd>
 
@@ -1137,7 +1140,8 @@ await client.dex.swapStatus({
 <dd>
 
 ```typescript
-await client.jetton.getWalletAddress("addr_str", {
+await client.jetton.getWalletAddress({
+    addr_str: "addr_str",
     owner_address: "EQCM3B12QK1e4yZSf8GtBRT0aLMNyEsBc_DhVfRRtOEffLez",
 });
 ```
@@ -1151,14 +1155,6 @@ await client.jetton.getWalletAddress("addr_str", {
 
 <dl>
 <dd>
-
-<dl>
-<dd>
-
-**addrStr:** `string`
-
-</dd>
-</dl>
 
 <dl>
 <dd>
@@ -1197,10 +1193,7 @@ await client.jetton.getWalletAddress("addr_str", {
 <dd>
 
 ```typescript
-await client.stats.getDexStats({
-    since: "2023-06-01T12:34:56",
-    until: "2023-06-02T23:59:59",
-});
+await client.stats.getDexStats();
 ```
 
 </dd>
@@ -1550,7 +1543,7 @@ await client.stats.getStakingStats();
 
 ## Wallets
 
-<details><summary><code>client.wallets.<a href="/src/api/resources/wallets/client/Client.ts">getWalletAssets</a>(addrStr) -> Stonfi.GetWalletAssetsResponse</code></summary>
+<details><summary><code>client.wallets.<a href="/src/api/resources/wallets/client/Client.ts">getWalletAssets</a>({ ...params }) -> Stonfi.GetWalletAssetsResponse</code></summary>
 <dl>
 <dd>
 
@@ -1563,7 +1556,9 @@ await client.stats.getStakingStats();
 <dd>
 
 ```typescript
-await client.wallets.getWalletAssets("addr_str");
+await client.wallets.getWalletAssets({
+    addr_str: "addr_str",
+});
 ```
 
 </dd>
@@ -1579,7 +1574,7 @@ await client.wallets.getWalletAssets("addr_str");
 <dl>
 <dd>
 
-**addrStr:** `string`
+**request:** `Stonfi.GetWalletAssetsRequest`
 
 </dd>
 </dl>
@@ -1598,7 +1593,7 @@ await client.wallets.getWalletAssets("addr_str");
 </dl>
 </details>
 
-<details><summary><code>client.wallets.<a href="/src/api/resources/wallets/client/Client.ts">getWalletAsset</a>(addrStr, assetStr) -> Stonfi.GetWalletAssetResponse</code></summary>
+<details><summary><code>client.wallets.<a href="/src/api/resources/wallets/client/Client.ts">getWalletAsset</a>({ ...params }) -> Stonfi.GetWalletAssetResponse</code></summary>
 <dl>
 <dd>
 
@@ -1611,7 +1606,10 @@ await client.wallets.getWalletAssets("addr_str");
 <dd>
 
 ```typescript
-await client.wallets.getWalletAsset("addr_str", "asset_str");
+await client.wallets.getWalletAsset({
+    addr_str: "addr_str",
+    asset_str: "asset_str",
+});
 ```
 
 </dd>
@@ -1627,15 +1625,7 @@ await client.wallets.getWalletAsset("addr_str", "asset_str");
 <dl>
 <dd>
 
-**addrStr:** `string`
-
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**assetStr:** `string`
+**request:** `Stonfi.GetWalletAssetRequest`
 
 </dd>
 </dl>
@@ -1654,7 +1644,7 @@ await client.wallets.getWalletAsset("addr_str", "asset_str");
 </dl>
 </details>
 
-<details><summary><code>client.wallets.<a href="/src/api/resources/wallets/client/Client.ts">getWalletFarms</a>(addrStr, { ...params }) -> Stonfi.GetWalletFarmsResponse</code></summary>
+<details><summary><code>client.wallets.<a href="/src/api/resources/wallets/client/Client.ts">getWalletFarms</a>({ ...params }) -> Stonfi.GetWalletFarmsResponse</code></summary>
 <dl>
 <dd>
 
@@ -1667,7 +1657,9 @@ await client.wallets.getWalletAsset("addr_str", "asset_str");
 <dd>
 
 ```typescript
-await client.wallets.getWalletFarms("addr_str");
+await client.wallets.getWalletFarms({
+    addr_str: "addr_str",
+});
 ```
 
 </dd>
@@ -1679,14 +1671,6 @@ await client.wallets.getWalletFarms("addr_str");
 
 <dl>
 <dd>
-
-<dl>
-<dd>
-
-**addrStr:** `string`
-
-</dd>
-</dl>
 
 <dl>
 <dd>
@@ -1710,7 +1694,7 @@ await client.wallets.getWalletFarms("addr_str");
 </dl>
 </details>
 
-<details><summary><code>client.wallets.<a href="/src/api/resources/wallets/client/Client.ts">getWalletFarm</a>(addrStr, farmStr) -> Stonfi.GetWalletFarmResponse</code></summary>
+<details><summary><code>client.wallets.<a href="/src/api/resources/wallets/client/Client.ts">getWalletFarm</a>({ ...params }) -> Stonfi.GetWalletFarmResponse</code></summary>
 <dl>
 <dd>
 
@@ -1723,113 +1707,9 @@ await client.wallets.getWalletFarms("addr_str");
 <dd>
 
 ```typescript
-await client.wallets.getWalletFarm("addr_str", "farm_str");
-```
-
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**addrStr:** `string`
-
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**farmStr:** `string`
-
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**requestOptions:** `Wallets.RequestOptions`
-
-</dd>
-</dl>
-</dd>
-</dl>
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.wallets.<a href="/src/api/resources/wallets/client/Client.ts">getFeeVaults</a>(addrStr) -> Stonfi.GetFeeVaultsResponse</code></summary>
-<dl>
-<dd>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```typescript
-await client.wallets.getFeeVaults("addr_str");
-```
-
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**addrStr:** `string`
-
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**requestOptions:** `Wallets.RequestOptions`
-
-</dd>
-</dl>
-</dd>
-</dl>
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.wallets.<a href="/src/api/resources/wallets/client/Client.ts">getWalletOperationsUtoipa</a>(addrStr, { ...params }) -> Stonfi.GetWalletOperationsUtoipaResponse</code></summary>
-<dl>
-<dd>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```typescript
-await client.wallets.getWalletOperationsUtoipa("addr_str", {
-    since: "2023-06-01T12:34:56",
-    until: "2023-06-02T23:59:59",
+await client.wallets.getWalletFarm({
+    addr_str: "addr_str",
+    farm_str: "farm_str",
 });
 ```
 
@@ -1846,10 +1726,104 @@ await client.wallets.getWalletOperationsUtoipa("addr_str", {
 <dl>
 <dd>
 
-**addrStr:** `string`
+**request:** `Stonfi.GetWalletFarmRequest`
 
 </dd>
 </dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `Wallets.RequestOptions`
+
+</dd>
+</dl>
+</dd>
+</dl>
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.wallets.<a href="/src/api/resources/wallets/client/Client.ts">getFeeVaults</a>({ ...params }) -> Stonfi.GetFeeVaultsResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```typescript
+await client.wallets.getFeeVaults({
+    addr_str: "addr_str",
+});
+```
+
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Stonfi.GetFeeVaultsRequest`
+
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `Wallets.RequestOptions`
+
+</dd>
+</dl>
+</dd>
+</dl>
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.wallets.<a href="/src/api/resources/wallets/client/Client.ts">getWalletOperationsUtoipa</a>({ ...params }) -> Stonfi.GetWalletOperationsUtoipaResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```typescript
+await client.wallets.getWalletOperationsUtoipa({
+    addr_str: "addr_str",
+    since: "2023-06-01T12:34:56",
+    until: "2023-06-02T23:59:59",
+});
+```
+
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
 
 <dl>
 <dd>
@@ -1873,7 +1847,7 @@ await client.wallets.getWalletOperationsUtoipa("addr_str", {
 </dl>
 </details>
 
-<details><summary><code>client.wallets.<a href="/src/api/resources/wallets/client/Client.ts">getWalletPools</a>(addrStr, { ...params }) -> Stonfi.GetWalletPoolsResponse</code></summary>
+<details><summary><code>client.wallets.<a href="/src/api/resources/wallets/client/Client.ts">getWalletPools</a>({ ...params }) -> Stonfi.GetWalletPoolsResponse</code></summary>
 <dl>
 <dd>
 
@@ -1886,7 +1860,9 @@ await client.wallets.getWalletOperationsUtoipa("addr_str", {
 <dd>
 
 ```typescript
-await client.wallets.getWalletPools("addr_str");
+await client.wallets.getWalletPools({
+    addr_str: "addr_str",
+});
 ```
 
 </dd>
@@ -1898,14 +1874,6 @@ await client.wallets.getWalletPools("addr_str");
 
 <dl>
 <dd>
-
-<dl>
-<dd>
-
-**addrStr:** `string`
-
-</dd>
-</dl>
 
 <dl>
 <dd>
@@ -1929,7 +1897,7 @@ await client.wallets.getWalletPools("addr_str");
 </dl>
 </details>
 
-<details><summary><code>client.wallets.<a href="/src/api/resources/wallets/client/Client.ts">getWalletPool</a>(addrStr, poolStr) -> Stonfi.GetWalletPoolResponse</code></summary>
+<details><summary><code>client.wallets.<a href="/src/api/resources/wallets/client/Client.ts">getWalletPool</a>({ ...params }) -> Stonfi.GetWalletPoolResponse</code></summary>
 <dl>
 <dd>
 
@@ -1942,7 +1910,10 @@ await client.wallets.getWalletPools("addr_str");
 <dd>
 
 ```typescript
-await client.wallets.getWalletPool("addr_str", "pool_str");
+await client.wallets.getWalletPool({
+    addr_str: "addr_str",
+    pool_str: "pool_str",
+});
 ```
 
 </dd>
@@ -1958,15 +1929,7 @@ await client.wallets.getWalletPool("addr_str", "pool_str");
 <dl>
 <dd>
 
-**addrStr:** `string`
-
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**poolStr:** `string`
+**request:** `Stonfi.GetWalletPoolRequest`
 
 </dd>
 </dl>
@@ -1985,7 +1948,7 @@ await client.wallets.getWalletPool("addr_str", "pool_str");
 </dl>
 </details>
 
-<details><summary><code>client.wallets.<a href="/src/api/resources/wallets/client/Client.ts">getWalletStakes</a>(addrStr) -> Stonfi.GetWalletStakesResponse</code></summary>
+<details><summary><code>client.wallets.<a href="/src/api/resources/wallets/client/Client.ts">getWalletStakes</a>({ ...params }) -> Stonfi.GetWalletStakesResponse</code></summary>
 <dl>
 <dd>
 
@@ -1998,7 +1961,9 @@ await client.wallets.getWalletPool("addr_str", "pool_str");
 <dd>
 
 ```typescript
-await client.wallets.getWalletStakes("addr_str");
+await client.wallets.getWalletStakes({
+    addr_str: "addr_str",
+});
 ```
 
 </dd>
@@ -2014,7 +1979,7 @@ await client.wallets.getWalletStakes("addr_str");
 <dl>
 <dd>
 
-**addrStr:** `string`
+**request:** `Stonfi.GetWalletStakesRequest`
 
 </dd>
 </dl>

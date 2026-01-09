@@ -6,23 +6,22 @@ import * as Stonfi from "../index.js";
 
 export interface AssetInfoSchemaV2 {
     /** Asset balance */
-    balance?: string;
+    balance?: string | null;
     /** Address of smart contract */
     contract_address: string;
     /** Ston internal asset price in USD */
-    dex_price_usd?: string;
+    dex_price_usd?: string | null;
     /** Comma separated list of supported extensions */
     extensions?: string[];
     /** Asset kind */
     kind: Stonfi.AssetKindSchema;
-    /** Asset meta */
-    meta?: Stonfi.AssetMetaSchemaV2;
+    meta?: Stonfi.AssetMetaSchemaV2 | null;
     /** Asset priority for ease of display */
-    pair_priority?: number;
+    pair_priority?: number | null;
     /** Asset popularity index */
-    popularity_index?: number;
+    popularity_index?: number | null;
     /** Asset tags */
     tags?: string[];
     /** Asset wallet address */
-    wallet_address?: string;
+    wallet_address?: string | null;
 }

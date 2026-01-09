@@ -20,5 +20,5 @@ export interface FarmNftInfoSchema {
     /** NFT status */
     status: string;
     /** Unstake timestamp */
-    unstake_timestamp?: string;
+    unstake_timestamp?: string | null;
 }

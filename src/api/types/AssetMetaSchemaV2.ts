@@ -4,13 +4,13 @@
 
 export interface AssetMetaSchemaV2 {
     /** Custom payload API URI */
-    custom_payload_api_uri?: string;
+    custom_payload_api_uri?: string | null;
     /** Number of decimal places used to represent fractional amounts of an asset */
-    decimals?: number;
+    decimals?: number | null;
     /** Displayable name */
-    display_name?: string;
+    display_name?: string | null;
     /** URL to asset image */
-    image_url?: string;
+    image_url?: string | null;
     /** Asset symbol */
-    symbol?: string;
+    symbol?: string | null;
 }

@@ -1,6 +1,6 @@
 {
     "name": "stonfi",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "private": false,
     "repository": "github:fern-demo/stonfi-typescript-sdk",
     "type": "commonjs",

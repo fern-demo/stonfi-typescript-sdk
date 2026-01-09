@@ -98,23 +98,26 @@ export class Export {
     }
 
     /**
-     * @param {string} address
+     * @param {Stonfi.ScreenerAssetInfoRequest} request
      * @param {Export.RequestOptions} requestOptions - Request-specific configuration.
      *
      * @example
-     *     await client.export.screenerAssetInfo("address")
+     *     await client.export.screenerAssetInfo({
+     *         address: "address"
+     *     })
      */
     public screenerAssetInfo(
-        address: string,
+        request: Stonfi.ScreenerAssetInfoRequest,
         requestOptions?: Export.RequestOptions,
     ): core.HttpResponsePromise<Stonfi.ScreenerAssetInfoResponse> {
-        return core.HttpResponsePromise.fromPromise(this.__screenerAssetInfo(address, requestOptions));
+        return core.HttpResponsePromise.fromPromise(this.__screenerAssetInfo(request, requestOptions));
     }
 
     private async __screenerAssetInfo(
-        address: string,
+        request: Stonfi.ScreenerAssetInfoRequest,
         requestOptions?: Export.RequestOptions,
     ): Promise<core.WithRawResponse<Stonfi.ScreenerAssetInfoResponse>> {
+        const { address } = request;
         const _response = await core.fetcher({
             url: core.url.join(
                 (await core.Supplier.get(this._options.baseUrl)) ??
@@ -284,23 +287,26 @@ export class Export {
     }
 
     /**
-     * @param {string} address
+     * @param {Stonfi.ScreenerPoolInfoRequest} request
      * @param {Export.RequestOptions} requestOptions - Request-specific configuration.
      *
      * @example
-     *     await client.export.screenerPoolInfo("address")
+     *     await client.export.screenerPoolInfo({
+     *         address: "address"
+     *     })
      */
     public screenerPoolInfo(
-        address: string,
+        request: Stonfi.ScreenerPoolInfoRequest,
         requestOptions?: Export.RequestOptions,
     ): core.HttpResponsePromise<Stonfi.ScreenerPoolInfoResponse> {
-        return core.HttpResponsePromise.fromPromise(this.__screenerPoolInfo(address, requestOptions));
+        return core.HttpResponsePromise.fromPromise(this.__screenerPoolInfo(request, requestOptions));
     }
 
     private async __screenerPoolInfo(
-        address: string,
+        request: Stonfi.ScreenerPoolInfoRequest,
         requestOptions?: Export.RequestOptions,
     ): Promise<core.WithRawResponse<Stonfi.ScreenerPoolInfoResponse>> {
+        const { address } = request;
         const _response = await core.fetcher({
             url: core.url.join(
                 (await core.Supplier.get(this._options.baseUrl)) ??

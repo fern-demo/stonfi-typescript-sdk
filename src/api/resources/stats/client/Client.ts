@@ -43,10 +43,7 @@ export class Stats {
      * @param {Stats.RequestOptions} requestOptions - Request-specific configuration.
      *
      * @example
-     *     await client.stats.getDexStats({
-     *         since: "2023-06-01T12:34:56",
-     *         until: "2023-06-02T23:59:59"
-     *     })
+     *     await client.stats.getDexStats()
      */
     public getDexStats(
         request: Stonfi.GetDexStatsRequest = {},
@@ -61,11 +58,11 @@ export class Stats {
     ): Promise<core.WithRawResponse<Stonfi.GetDexStatsResponse>> {
         const { since, until } = request;
         const _queryParams: Record<string, string | string[] | object | object[] | null> = {};
-        if (since != null) {
+        if (since !== undefined) {
             _queryParams["since"] = since;
         }
 
-        if (until != null) {
+        if (until !== undefined) {
             _queryParams["until"] = until;
         }
 

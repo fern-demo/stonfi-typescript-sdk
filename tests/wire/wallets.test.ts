@@ -46,7 +46,9 @@ describe("Wallets", () => {
             .jsonBody(rawResponseBody)
             .build();
 
-        const response = await client.wallets.getWalletAssets("addr_str");
+        const response = await client.wallets.getWalletAssets({
+            addr_str: "addr_str",
+        });
         expect(response).toEqual({
             asset_list: [
                 {
@@ -115,7 +117,10 @@ describe("Wallets", () => {
             .jsonBody(rawResponseBody)
             .build();
 
-        const response = await client.wallets.getWalletAsset("addr_str", "asset_str");
+        const response = await client.wallets.getWalletAsset({
+            addr_str: "addr_str",
+            asset_str: "asset_str",
+        });
         expect(response).toEqual({
             asset: {
                 balance: "balance",
@@ -196,7 +201,9 @@ describe("Wallets", () => {
             .jsonBody(rawResponseBody)
             .build();
 
-        const response = await client.wallets.getWalletFarms("addr_str");
+        const response = await client.wallets.getWalletFarms({
+            addr_str: "addr_str",
+        });
         expect(response).toEqual({
             farm_list: [
                 {
@@ -301,7 +308,10 @@ describe("Wallets", () => {
             .jsonBody(rawResponseBody)
             .build();
 
-        const response = await client.wallets.getWalletFarm("addr_str", "farm_str");
+        const response = await client.wallets.getWalletFarm({
+            addr_str: "addr_str",
+            farm_str: "farm_str",
+        });
         expect(response).toEqual({
             farm: {
                 all_rewards_distributed: true,
@@ -378,7 +388,9 @@ describe("Wallets", () => {
             .jsonBody(rawResponseBody)
             .build();
 
-        const response = await client.wallets.getFeeVaults("addr_str");
+        const response = await client.wallets.getFeeVaults({
+            addr_str: "addr_str",
+        });
         expect(response).toEqual({
             vault_list: [
                 {
@@ -463,7 +475,8 @@ describe("Wallets", () => {
             .jsonBody(rawResponseBody)
             .build();
 
-        const response = await client.wallets.getWalletOperationsUtoipa("addr_str", {
+        const response = await client.wallets.getWalletOperationsUtoipa({
+            addr_str: "addr_str",
             since: "2023-06-01T12:34:56",
             until: "2023-06-02T23:59:59",
         });
@@ -576,7 +589,9 @@ describe("Wallets", () => {
             .jsonBody(rawResponseBody)
             .build();
 
-        const response = await client.wallets.getWalletPools("addr_str");
+        const response = await client.wallets.getWalletPools({
+            addr_str: "addr_str",
+        });
         expect(response).toEqual({
             pool_list: [
                 {
@@ -659,7 +674,10 @@ describe("Wallets", () => {
             .jsonBody(rawResponseBody)
             .build();
 
-        const response = await client.wallets.getWalletPool("addr_str", "pool_str");
+        const response = await client.wallets.getWalletPool({
+            addr_str: "addr_str",
+            pool_str: "pool_str",
+        });
         expect(response).toEqual({
             pool: {
                 address: "address",
@@ -726,7 +744,9 @@ describe("Wallets", () => {
             .jsonBody(rawResponseBody)
             .build();
 
-        const response = await client.wallets.getWalletStakes("addr_str");
+        const response = await client.wallets.getWalletStakes({
+            addr_str: "addr_str",
+        });
         expect(response).toEqual({
             minted_gemston: "minted_gemston",
             nfts: [

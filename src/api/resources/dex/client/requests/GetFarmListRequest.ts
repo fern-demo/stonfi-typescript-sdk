@@ -10,12 +10,12 @@ export interface GetFarmListRequest {
     /**
      * If true farms for V2 pools will be present in the response. Default: true
      */
-    dex_v2?: boolean;
+    dex_v2?: boolean | null;
     /**
      * If true, only not finished will be present in the response. Default: false
      *
      * If request is made for a specific wallet, a farm will be present in the response
      * if it's not finished or if a wallet has some NFT's in this farm.
      */
-    only_active?: boolean;
+    only_active?: boolean | null;
 }

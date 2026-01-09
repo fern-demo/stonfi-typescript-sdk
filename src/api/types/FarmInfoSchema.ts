@@ -8,17 +8,16 @@ export interface FarmInfoSchema {
     /** True if remaining rewards can't be distributed */
     all_rewards_distributed: boolean;
     /** Annual percentage yield */
-    apy?: string;
+    apy?: string | null;
     /** Create timestamp */
-    create_timestamp?: string;
+    create_timestamp?: string | null;
     /** Custodian address */
     custodian_address: string;
     /** Locked total LP tokens */
     locked_total_lp: string;
     /** Locked total LP tokens in USD */
-    locked_total_lp_usd?: string;
-    /** Farm meta */
-    meta?: Stonfi.FarmMinterMetaSchema;
+    locked_total_lp_usd?: string | null;
+    meta?: Stonfi.FarmMinterMetaSchema | null;
     /** Minimal stake duration seconds */
     min_stake_duration_s: string;
     /** Address of the farm */
@@ -26,7 +25,7 @@ export interface FarmInfoSchema {
     /** Farm NFT list */
     nft_infos: Stonfi.FarmNftInfoSchema[];
     /** Owner address */
-    owner_address?: string;
+    owner_address?: string | null;
     /** Address of the pool */
     pool_address: string;
     /** Farm rewards */

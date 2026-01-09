@@ -6,7 +6,7 @@ import * as Stonfi from "../index.js";
 
 export interface AssetInfoSchema {
     /** Asset balance */
-    balance?: string;
+    balance?: string | null;
     /** Asset is blacklisted */
     blacklisted: boolean;
     /** Asset is community created */
@@ -14,7 +14,7 @@ export interface AssetInfoSchema {
     /** Address of smart contract */
     contract_address: string;
     /** Custom payload API URI */
-    custom_payload_api_uri?: string;
+    custom_payload_api_uri?: string | null;
     /** Number of decimal places used to represent fractional amounts of an asset */
     decimals: number;
     /** Asset has default symbol */
@@ -22,19 +22,19 @@ export interface AssetInfoSchema {
     /** Asset is deprecated */
     deprecated: boolean;
     /** Ston internal asset price in USD */
-    dex_price_usd?: string;
+    dex_price_usd?: string | null;
     /** [DEPRECATED] Ston internal asset price in USD */
-    dex_usd_price?: string;
+    dex_usd_price?: string | null;
     /** Displayable name */
-    display_name?: string;
+    display_name?: string | null;
     /** Comma separated list of supported extensions */
     extensions?: string[];
     /** URL to asset image */
-    image_url?: string;
+    image_url?: string | null;
     /** Asset kind */
     kind: Stonfi.AssetKindSchema;
     /** Popularity index */
-    popularity_index?: number;
+    popularity_index?: number | null;
     /** Asset priority for ease of display */
     priority: number;
     /** Asset symbol */
@@ -44,9 +44,9 @@ export interface AssetInfoSchema {
     /** Asset may have fee from the authors */
     taxable: boolean;
     /** Asset price in USD */
-    third_party_price_usd?: string;
+    third_party_price_usd?: string | null;
     /** [DEPRECATED] Asset price in USD */
-    third_party_usd_price?: string;
+    third_party_usd_price?: string | null;
     /** Asset wallet address */
-    wallet_address?: string;
+    wallet_address?: string | null;
 }

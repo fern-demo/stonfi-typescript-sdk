@@ -39,23 +39,26 @@ export class Wallets {
     }
 
     /**
-     * @param {string} addrStr
+     * @param {Stonfi.GetWalletAssetsRequest} request
      * @param {Wallets.RequestOptions} requestOptions - Request-specific configuration.
      *
      * @example
-     *     await client.wallets.getWalletAssets("addr_str")
+     *     await client.wallets.getWalletAssets({
+     *         addr_str: "addr_str"
+     *     })
      */
     public getWalletAssets(
-        addrStr: string,
+        request: Stonfi.GetWalletAssetsRequest,
         requestOptions?: Wallets.RequestOptions,
     ): core.HttpResponsePromise<Stonfi.GetWalletAssetsResponse> {
-        return core.HttpResponsePromise.fromPromise(this.__getWalletAssets(addrStr, requestOptions));
+        return core.HttpResponsePromise.fromPromise(this.__getWalletAssets(request, requestOptions));
     }
 
     private async __getWalletAssets(
-        addrStr: string,
+        request: Stonfi.GetWalletAssetsRequest,
         requestOptions?: Wallets.RequestOptions,
     ): Promise<core.WithRawResponse<Stonfi.GetWalletAssetsResponse>> {
+        const { addr_str: addrStr } = request;
         const _response = await core.fetcher({
             url: core.url.join(
                 (await core.Supplier.get(this._options.baseUrl)) ??
@@ -98,26 +101,27 @@ export class Wallets {
     }
 
     /**
-     * @param {string} addrStr
-     * @param {string} assetStr
+     * @param {Stonfi.GetWalletAssetRequest} request
      * @param {Wallets.RequestOptions} requestOptions - Request-specific configuration.
      *
      * @example
-     *     await client.wallets.getWalletAsset("addr_str", "asset_str")
+     *     await client.wallets.getWalletAsset({
+     *         addr_str: "addr_str",
+     *         asset_str: "asset_str"
+     *     })
      */
     public getWalletAsset(
-        addrStr: string,
-        assetStr: string,
+        request: Stonfi.GetWalletAssetRequest,
         requestOptions?: Wallets.RequestOptions,
     ): core.HttpResponsePromise<Stonfi.GetWalletAssetResponse> {
-        return core.HttpResponsePromise.fromPromise(this.__getWalletAsset(addrStr, assetStr, requestOptions));
+        return core.HttpResponsePromise.fromPromise(this.__getWalletAsset(request, requestOptions));
     }
 
     private async __getWalletAsset(
-        addrStr: string,
-        assetStr: string,
+        request: Stonfi.GetWalletAssetRequest,
         requestOptions?: Wallets.RequestOptions,
     ): Promise<core.WithRawResponse<Stonfi.GetWalletAssetResponse>> {
+        const { addr_str: addrStr, asset_str: assetStr } = request;
         const _response = await core.fetcher({
             url: core.url.join(
                 (await core.Supplier.get(this._options.baseUrl)) ??
@@ -162,34 +166,33 @@ export class Wallets {
     }
 
     /**
-     * @param {string} addrStr
      * @param {Stonfi.GetWalletFarmsRequest} request
      * @param {Wallets.RequestOptions} requestOptions - Request-specific configuration.
      *
      * @example
-     *     await client.wallets.getWalletFarms("addr_str")
+     *     await client.wallets.getWalletFarms({
+     *         addr_str: "addr_str"
+     *     })
      */
     public getWalletFarms(
-        addrStr: string,
-        request: Stonfi.GetWalletFarmsRequest = {},
+        request: Stonfi.GetWalletFarmsRequest,
         requestOptions?: Wallets.RequestOptions,
     ): core.HttpResponsePromise<Stonfi.GetWalletFarmsResponse> {
-        return core.HttpResponsePromise.fromPromise(this.__getWalletFarms(addrStr, request, requestOptions));
+        return core.HttpResponsePromise.fromPromise(this.__getWalletFarms(request, requestOptions));
     }
 
     private async __getWalletFarms(
-        addrStr: string,
-        request: Stonfi.GetWalletFarmsRequest = {},
+        request: Stonfi.GetWalletFarmsRequest,
         requestOptions?: Wallets.RequestOptions,
     ): Promise<core.WithRawResponse<Stonfi.GetWalletFarmsResponse>> {
-        const { dex_v2: dexV2, only_active: onlyActive } = request;
+        const { addr_str: addrStr, dex_v2: dexV2, only_active: onlyActive } = request;
         const _queryParams: Record<string, string | string[] | object | object[] | null> = {};
-        if (dexV2 != null) {
-            _queryParams["dex_v2"] = dexV2.toString();
+        if (dexV2 !== undefined) {
+            _queryParams["dex_v2"] = dexV2?.toString() ?? null;
         }
 
-        if (onlyActive != null) {
-            _queryParams["only_active"] = onlyActive.toString();
+        if (onlyActive !== undefined) {
+            _queryParams["only_active"] = onlyActive?.toString() ?? null;
         }
 
         const _response = await core.fetcher({
@@ -235,26 +238,27 @@ export class Wallets {
     }
 
     /**
-     * @param {string} addrStr
-     * @param {string} farmStr
+     * @param {Stonfi.GetWalletFarmRequest} request
      * @param {Wallets.RequestOptions} requestOptions - Request-specific configuration.
      *
      * @example
-     *     await client.wallets.getWalletFarm("addr_str", "farm_str")
+     *     await client.wallets.getWalletFarm({
+     *         addr_str: "addr_str",
+     *         farm_str: "farm_str"
+     *     })
      */
     public getWalletFarm(
-        addrStr: string,
-        farmStr: string,
+        request: Stonfi.GetWalletFarmRequest,
         requestOptions?: Wallets.RequestOptions,
     ): core.HttpResponsePromise<Stonfi.GetWalletFarmResponse> {
-        return core.HttpResponsePromise.fromPromise(this.__getWalletFarm(addrStr, farmStr, requestOptions));
+        return core.HttpResponsePromise.fromPromise(this.__getWalletFarm(request, requestOptions));
     }
 
     private async __getWalletFarm(
-        addrStr: string,
-        farmStr: string,
+        request: Stonfi.GetWalletFarmRequest,
         requestOptions?: Wallets.RequestOptions,
     ): Promise<core.WithRawResponse<Stonfi.GetWalletFarmResponse>> {
+        const { addr_str: addrStr, farm_str: farmStr } = request;
         const _response = await core.fetcher({
             url: core.url.join(
                 (await core.Supplier.get(this._options.baseUrl)) ??
@@ -299,23 +303,26 @@ export class Wallets {
     }
 
     /**
-     * @param {string} addrStr
+     * @param {Stonfi.GetFeeVaultsRequest} request
      * @param {Wallets.RequestOptions} requestOptions - Request-specific configuration.
      *
      * @example
-     *     await client.wallets.getFeeVaults("addr_str")
+     *     await client.wallets.getFeeVaults({
+     *         addr_str: "addr_str"
+     *     })
      */
     public getFeeVaults(
-        addrStr: string,
+        request: Stonfi.GetFeeVaultsRequest,
         requestOptions?: Wallets.RequestOptions,
     ): core.HttpResponsePromise<Stonfi.GetFeeVaultsResponse> {
-        return core.HttpResponsePromise.fromPromise(this.__getFeeVaults(addrStr, requestOptions));
+        return core.HttpResponsePromise.fromPromise(this.__getFeeVaults(request, requestOptions));
     }
 
     private async __getFeeVaults(
-        addrStr: string,
+        request: Stonfi.GetFeeVaultsRequest,
         requestOptions?: Wallets.RequestOptions,
     ): Promise<core.WithRawResponse<Stonfi.GetFeeVaultsResponse>> {
+        const { addr_str: addrStr } = request;
         const _response = await core.fetcher({
             url: core.url.join(
                 (await core.Supplier.get(this._options.baseUrl)) ??
@@ -360,30 +367,28 @@ export class Wallets {
     }
 
     /**
-     * @param {string} addrStr
      * @param {Stonfi.GetWalletOperationsUtoipaRequest} request
      * @param {Wallets.RequestOptions} requestOptions - Request-specific configuration.
      *
      * @example
-     *     await client.wallets.getWalletOperationsUtoipa("addr_str", {
+     *     await client.wallets.getWalletOperationsUtoipa({
+     *         addr_str: "addr_str",
      *         since: "2023-06-01T12:34:56",
      *         until: "2023-06-02T23:59:59"
      *     })
      */
     public getWalletOperationsUtoipa(
-        addrStr: string,
         request: Stonfi.GetWalletOperationsUtoipaRequest,
         requestOptions?: Wallets.RequestOptions,
     ): core.HttpResponsePromise<Stonfi.GetWalletOperationsUtoipaResponse> {
-        return core.HttpResponsePromise.fromPromise(this.__getWalletOperationsUtoipa(addrStr, request, requestOptions));
+        return core.HttpResponsePromise.fromPromise(this.__getWalletOperationsUtoipa(request, requestOptions));
     }
 
     private async __getWalletOperationsUtoipa(
-        addrStr: string,
         request: Stonfi.GetWalletOperationsUtoipaRequest,
         requestOptions?: Wallets.RequestOptions,
     ): Promise<core.WithRawResponse<Stonfi.GetWalletOperationsUtoipaResponse>> {
-        const { since, until, op_type: opType, dex_v2: dexV2 } = request;
+        const { addr_str: addrStr, since, until, op_type: opType, dex_v2: dexV2 } = request;
         const _queryParams: Record<string, string | string[] | object | object[] | null> = {};
         _queryParams["since"] = since;
         _queryParams["until"] = until;
@@ -395,8 +400,8 @@ export class Wallets {
             }
         }
 
-        if (dexV2 != null) {
-            _queryParams["dex_v2"] = dexV2.toString();
+        if (dexV2 !== undefined) {
+            _queryParams["dex_v2"] = dexV2?.toString() ?? null;
         }
 
         const _response = await core.fetcher({
@@ -447,30 +452,29 @@ export class Wallets {
     }
 
     /**
-     * @param {string} addrStr
      * @param {Stonfi.GetWalletPoolsRequest} request
      * @param {Wallets.RequestOptions} requestOptions - Request-specific configuration.
      *
      * @example
-     *     await client.wallets.getWalletPools("addr_str")
+     *     await client.wallets.getWalletPools({
+     *         addr_str: "addr_str"
+     *     })
      */
     public getWalletPools(
-        addrStr: string,
-        request: Stonfi.GetWalletPoolsRequest = {},
+        request: Stonfi.GetWalletPoolsRequest,
         requestOptions?: Wallets.RequestOptions,
     ): core.HttpResponsePromise<Stonfi.GetWalletPoolsResponse> {
-        return core.HttpResponsePromise.fromPromise(this.__getWalletPools(addrStr, request, requestOptions));
+        return core.HttpResponsePromise.fromPromise(this.__getWalletPools(request, requestOptions));
     }
 
     private async __getWalletPools(
-        addrStr: string,
-        request: Stonfi.GetWalletPoolsRequest = {},
+        request: Stonfi.GetWalletPoolsRequest,
         requestOptions?: Wallets.RequestOptions,
     ): Promise<core.WithRawResponse<Stonfi.GetWalletPoolsResponse>> {
-        const { dex_v2: dexV2 } = request;
+        const { addr_str: addrStr, dex_v2: dexV2 } = request;
         const _queryParams: Record<string, string | string[] | object | object[] | null> = {};
-        if (dexV2 != null) {
-            _queryParams["dex_v2"] = dexV2.toString();
+        if (dexV2 !== undefined) {
+            _queryParams["dex_v2"] = dexV2?.toString() ?? null;
         }
 
         const _response = await core.fetcher({
@@ -516,26 +520,27 @@ export class Wallets {
     }
 
     /**
-     * @param {string} addrStr
-     * @param {string} poolStr
+     * @param {Stonfi.GetWalletPoolRequest} request
      * @param {Wallets.RequestOptions} requestOptions - Request-specific configuration.
      *
      * @example
-     *     await client.wallets.getWalletPool("addr_str", "pool_str")
+     *     await client.wallets.getWalletPool({
+     *         addr_str: "addr_str",
+     *         pool_str: "pool_str"
+     *     })
      */
     public getWalletPool(
-        addrStr: string,
-        poolStr: string,
+        request: Stonfi.GetWalletPoolRequest,
         requestOptions?: Wallets.RequestOptions,
     ): core.HttpResponsePromise<Stonfi.GetWalletPoolResponse> {
-        return core.HttpResponsePromise.fromPromise(this.__getWalletPool(addrStr, poolStr, requestOptions));
+        return core.HttpResponsePromise.fromPromise(this.__getWalletPool(request, requestOptions));
     }
 
     private async __getWalletPool(
-        addrStr: string,
-        poolStr: string,
+        request: Stonfi.GetWalletPoolRequest,
         requestOptions?: Wallets.RequestOptions,
     ): Promise<core.WithRawResponse<Stonfi.GetWalletPoolResponse>> {
+        const { addr_str: addrStr, pool_str: poolStr } = request;
         const _response = await core.fetcher({
             url: core.url.join(
                 (await core.Supplier.get(this._options.baseUrl)) ??
@@ -580,23 +585,26 @@ export class Wallets {
     }
 
     /**
-     * @param {string} addrStr
+     * @param {Stonfi.GetWalletStakesRequest} request
      * @param {Wallets.RequestOptions} requestOptions - Request-specific configuration.
      *
      * @example
-     *     await client.wallets.getWalletStakes("addr_str")
+     *     await client.wallets.getWalletStakes({
+     *         addr_str: "addr_str"
+     *     })
      */
     public getWalletStakes(
-        addrStr: string,
+        request: Stonfi.GetWalletStakesRequest,
         requestOptions?: Wallets.RequestOptions,
     ): core.HttpResponsePromise<Stonfi.GetWalletStakesResponse> {
-        return core.HttpResponsePromise.fromPromise(this.__getWalletStakes(addrStr, requestOptions));
+        return core.HttpResponsePromise.fromPromise(this.__getWalletStakes(request, requestOptions));
     }
 
     private async __getWalletStakes(
-        addrStr: string,
+        request: Stonfi.GetWalletStakesRequest,
         requestOptions?: Wallets.RequestOptions,
     ): Promise<core.WithRawResponse<Stonfi.GetWalletStakesResponse>> {
+        const { addr_str: addrStr } = request;
         const _response = await core.fetcher({
             url: core.url.join(
                 (await core.Supplier.get(this._options.baseUrl)) ??

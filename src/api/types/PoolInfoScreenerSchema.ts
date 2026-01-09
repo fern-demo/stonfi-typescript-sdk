@@ -8,13 +8,13 @@ export interface PoolInfoScreenerSchema {
     /** First asset in pair address */
     asset1Id: string;
     /** Pool creation block number */
-    createdAtBlockNumber?: number;
+    createdAtBlockNumber?: number | null;
     /** Pool creation block number */
-    createdAtBlockTimestamp?: number;
+    createdAtBlockTimestamp?: number | null;
     /** Pool creation transaction id */
-    createdAtTxnId?: string;
+    createdAtTxnId?: string | null;
     /** Protocol fee in base points */
-    feeBps?: number;
+    feeBps?: number | null;
     /** Liquidity pool address */
     id: string;
 }

@@ -5,7 +5,7 @@
 export interface FarmMinterRewardInfoSchema {
     address: string;
     admin_fee: string;
-    estimated_end_timestamp?: string;
+    estimated_end_timestamp?: string | null;
     index: number;
     remaining_rewards: string;
     reward_rate_24h: string;

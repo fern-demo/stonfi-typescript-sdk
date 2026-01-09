@@ -46,7 +46,8 @@ export class StonfiClient {
                 {
                     "X-Fern-Language": "JavaScript",
                     "X-Fern-SDK-Name": "stonfi",
-                    "X-Fern-SDK-Version": "0.0.1",
+                    "X-Fern-SDK-Version": "0.0.2",
+                    "User-Agent": "stonfi/0.0.2",
                     "X-Fern-Runtime": core.RUNTIME.type,
                     "X-Fern-Runtime-Version": core.RUNTIME.version,
                 },

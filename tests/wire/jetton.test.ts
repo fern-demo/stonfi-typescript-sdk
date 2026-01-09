@@ -19,7 +19,8 @@ describe("Jetton", () => {
             .jsonBody(rawResponseBody)
             .build();
 
-        const response = await client.jetton.getWalletAddress("addr_str", {
+        const response = await client.jetton.getWalletAddress({
+            addr_str: "addr_str",
             owner_address: "EQCM3B12QK1e4yZSf8GtBRT0aLMNyEsBc_DhVfRRtOEffLez",
         });
         expect(response).toEqual({

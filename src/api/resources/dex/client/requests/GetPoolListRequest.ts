@@ -10,5 +10,5 @@ export interface GetPoolListRequest {
     /**
      * If true V2 pools will be present in the response. Default: true
      */
-    dex_v2?: boolean;
+    dex_v2?: boolean | null;
 }

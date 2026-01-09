@@ -6,11 +6,11 @@ export interface AssetFeeStatsSchema {
     /** Sum of deposits */
     accrued: string;
     /** Sum of deposits in usd */
-    accrued_usd?: string;
+    accrued_usd?: string | null;
     /** Jetton master address */
     asset_address: string;
     /** Sum of withdrawals */
     withdrawn: string;
     /** Sum of withdrawals in usd */
-    withdrawn_usd?: string;
+    withdrawn_usd?: string | null;
 }

@@ -4,7 +4,7 @@
 
 export interface PoolStats {
     /** Annual percentage yield */
-    apy?: string;
+    apy?: string | null;
     /** Base asset id */
     base_id: string;
     /** Amount of liquidity of base asset */

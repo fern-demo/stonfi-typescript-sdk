@@ -5,10 +5,12 @@
 /**
  * @example
  *     {
+ *         addr_str: "addr_str",
  *         owner_address: "EQCM3B12QK1e4yZSf8GtBRT0aLMNyEsBc_DhVfRRtOEffLez"
  *     }
  */
 export interface GetWalletAddressRequest {
+    addr_str: string;
     /**
      * Address of the owner
      */

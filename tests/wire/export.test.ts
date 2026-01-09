@@ -72,7 +72,9 @@ describe("Export", () => {
             .jsonBody(rawResponseBody)
             .build();
 
-        const response = await client.export.screenerAssetInfo("address");
+        const response = await client.export.screenerAssetInfo({
+            address: "address",
+        });
         expect(response).toEqual({
             asset: {
                 circulatingSupply: "circulatingSupply",
@@ -157,7 +159,9 @@ describe("Export", () => {
             .jsonBody(rawResponseBody)
             .build();
 
-        const response = await client.export.screenerPoolInfo("address");
+        const response = await client.export.screenerPoolInfo({
+            address: "address",
+        });
         expect(response).toEqual({
             pair: {
                 asset0Id: "asset0Id",

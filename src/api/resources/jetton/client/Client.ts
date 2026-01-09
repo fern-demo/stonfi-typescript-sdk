@@ -39,29 +39,27 @@ export class Jetton {
     }
 
     /**
-     * @param {string} addrStr
      * @param {Stonfi.GetWalletAddressRequest} request
      * @param {Jetton.RequestOptions} requestOptions - Request-specific configuration.
      *
      * @example
-     *     await client.jetton.getWalletAddress("addr_str", {
+     *     await client.jetton.getWalletAddress({
+     *         addr_str: "addr_str",
      *         owner_address: "EQCM3B12QK1e4yZSf8GtBRT0aLMNyEsBc_DhVfRRtOEffLez"
      *     })
      */
     public getWalletAddress(
-        addrStr: string,
         request: Stonfi.GetWalletAddressRequest,
         requestOptions?: Jetton.RequestOptions,
     ): core.HttpResponsePromise<Stonfi.GetWalletAddressResponse> {
-        return core.HttpResponsePromise.fromPromise(this.__getWalletAddress(addrStr, request, requestOptions));
+        return core.HttpResponsePromise.fromPromise(this.__getWalletAddress(request, requestOptions));
     }
 
     private async __getWalletAddress(
-        addrStr: string,
         request: Stonfi.GetWalletAddressRequest,
         requestOptions?: Jetton.RequestOptions,
     ): Promise<core.WithRawResponse<Stonfi.GetWalletAddressResponse>> {
-        const { owner_address: ownerAddress } = request;
+        const { addr_str: addrStr, owner_address: ownerAddress } = request;
         const _queryParams: Record<string, string | string[] | object | object[] | null> = {};
         _queryParams["owner_address"] = ownerAddress;
         const _response = await core.fetcher({

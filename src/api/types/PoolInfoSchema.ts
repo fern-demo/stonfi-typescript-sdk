@@ -6,13 +6,13 @@ export interface PoolInfoSchema {
     /** Address of pool */
     address: string;
     /** Stable swap amplification parameter */
-    amp?: string;
+    amp?: string | null;
     /** Annual percentage yield on the last day */
-    apy_1d?: string;
+    apy_1d?: string | null;
     /** Annual percentage yield on the last month */
-    apy_30d?: string;
+    apy_30d?: string | null;
     /** Annual percentage yield on the last week */
-    apy_7d?: string;
+    apy_7d?: string | null;
     /** Protocol fee collected in token0 */
     collected_token0_protocol_fee: string;
     /** Protocol fee collected in token1 */
@@ -20,29 +20,29 @@ export interface PoolInfoSchema {
     /** Pool is deprecated */
     deprecated: boolean;
     /** Account address of liquidity pool tokens */
-    lp_account_address?: string;
+    lp_account_address?: string | null;
     /** Balance of liquidity pool tokens */
-    lp_balance?: string;
+    lp_balance?: string | null;
     /** Fee of liquidity pool token */
     lp_fee: string;
     /** Price of liquidity pool token in USD */
-    lp_price_usd?: string;
+    lp_price_usd?: string | null;
     /** Total supply of liquidity pool tokens */
     lp_total_supply: string;
     /** Total supply of liquidity pool tokens in USD */
-    lp_total_supply_usd?: string;
+    lp_total_supply_usd?: string | null;
     /** Wallet address of liquidity pool tokens */
-    lp_wallet_address?: string;
+    lp_wallet_address?: string | null;
     /** Popularity index */
-    popularity_index?: number;
+    popularity_index?: number | null;
     /** Fee of protocol */
     protocol_fee: string;
     /** Address of protocol fee */
     protocol_fee_address: string;
     /** Stable token ratio parameter */
-    rate?: string;
+    rate?: string | null;
     /** Referral fee */
-    ref_fee?: string;
+    ref_fee?: string | null;
     /** Reserve of token0 in pool */
     reserve0: string;
     /** Reserve of token1 in pool */
@@ -52,13 +52,13 @@ export interface PoolInfoSchema {
     /** Address of token0 */
     token0_address: string;
     /** Balance of token0 */
-    token0_balance?: string;
+    token0_balance?: string | null;
     /** Address of token1 */
     token1_address: string;
     /** Balance of token1 */
-    token1_balance?: string;
+    token1_balance?: string | null;
     /** USD trade volume during last 24 hours */
-    volume_24h_usd?: string;
+    volume_24h_usd?: string | null;
     /** Token 0 weight parameter */
-    w0?: string;
+    w0?: string | null;
 }

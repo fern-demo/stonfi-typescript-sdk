@@ -189,7 +189,9 @@ describe("Dex", () => {
             .jsonBody(rawResponseBody)
             .build();
 
-        const response = await client.dex.getAsset("addr_str");
+        const response = await client.dex.getAsset({
+            addr_str: "addr_str",
+        });
         expect(response).toEqual({
             asset: {
                 balance: "balance",
@@ -364,7 +366,9 @@ describe("Dex", () => {
             .jsonBody(rawResponseBody)
             .build();
 
-        const response = await client.dex.getFarmsByPool("pool_addr_str");
+        const response = await client.dex.getFarmsByPool({
+            pool_addr_str: "pool_addr_str",
+        });
         expect(response).toEqual({
             farm_list: [
                 {
@@ -463,7 +467,9 @@ describe("Dex", () => {
         };
         server.mockEndpoint().get("/v1/farms/addr_str").respondWith().statusCode(200).jsonBody(rawResponseBody).build();
 
-        const response = await client.dex.getFarm("addr_str");
+        const response = await client.dex.getFarm({
+            addr_str: "addr_str",
+        });
         expect(response).toEqual({
             farm: {
                 all_rewards_distributed: true,
@@ -554,12 +560,8 @@ describe("Dex", () => {
 
         const response = await client.dex.simulateLiquidityProvision({
             provision_type: "Initial",
-            pool_address: "EQCGScrZe1xbyWqWDvdI6mzP-GAcAWFv6ZXuaJOuSqemxku4",
-            wallet_address: "UQDYzZmfsrGzhObKJUw4gzdeIxEai3jAFbiGKGwxvxHinf4K",
             token_a: "EQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAM9c",
             token_b: "EQCxE6mUtQJKFnGfaROTKOt1lZbDiiX1kCixRv7Nw2Id_sDs",
-            token_a_units: "10",
-            token_b_units: "10",
             slippage_tolerance: "0.001",
         });
         expect(response).toEqual({
@@ -804,7 +806,10 @@ describe("Dex", () => {
             .jsonBody(rawResponseBody)
             .build();
 
-        const response = await client.dex.getPoolListByMarket("asset_0_addr_str", "asset_1_addr_str");
+        const response = await client.dex.getPoolListByMarket({
+            asset_0_addr_str: "asset_0_addr_str",
+            asset_1_addr_str: "asset_1_addr_str",
+        });
         expect(response).toEqual({
             pool_list: [
                 {
@@ -881,7 +886,9 @@ describe("Dex", () => {
         };
         server.mockEndpoint().get("/v1/pools/addr_str").respondWith().statusCode(200).jsonBody(rawResponseBody).build();
 
-        const response = await client.dex.getPool("addr_str");
+        const response = await client.dex.getPool({
+            addr_str: "addr_str",
+        });
         expect(response).toEqual({
             pool: {
                 address: "address",
@@ -958,7 +965,6 @@ describe("Dex", () => {
             ask_address: "EQCM3B12QK1e4yZSf8GtBRT0aLMNyEsBc_DhVfRRtOEffLez",
             units: "300",
             slippage_tolerance: "0.001",
-            pool_address: "EQAKleHU6-eGDQUfi4YXMNve4UQP0RGAIRkU4AiRRlgDUbaM",
         });
         expect(response).toEqual({
             ask_address: "ask_address",
@@ -1047,7 +1053,9 @@ describe("Dex", () => {
             .jsonBody(rawResponseBody)
             .build();
 
-        const response = await client.dex.getRouter("addr_str");
+        const response = await client.dex.getRouter({
+            addr_str: "addr_str",
+        });
         expect(response).toEqual({
             router: {
                 address: "address",
@@ -1097,7 +1105,6 @@ describe("Dex", () => {
             ask_address: "EQCM3B12QK1e4yZSf8GtBRT0aLMNyEsBc_DhVfRRtOEffLez",
             units: "300",
             slippage_tolerance: "0.001",
-            pool_address: "EQAKleHU6-eGDQUfi4YXMNve4UQP0RGAIRkU4AiRRlgDUbaM",
         });
         expect(response).toEqual({
             ask_address: "ask_address",

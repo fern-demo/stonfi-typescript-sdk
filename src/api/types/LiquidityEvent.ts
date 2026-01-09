@@ -10,7 +10,7 @@ export interface LiquidityEvent {
     eventIndex: number;
     maker: string;
     pairId: string;
-    reserves?: Stonfi.Reserves;
+    reserves?: Stonfi.Reserves | null;
     txnId: string;
     txnIndex: number;
 }

@@ -1,11 +1,17 @@
 export { type AssetQueryRequest } from "./AssetQueryRequest.js";
 export { type AssetSearchRequest } from "./AssetSearchRequest.js";
+export { type GetAssetRequest } from "./GetAssetRequest.js";
 export { type GetFarmListRequest } from "./GetFarmListRequest.js";
+export { type GetFarmsByPoolRequest } from "./GetFarmsByPoolRequest.js";
+export { type GetFarmRequest } from "./GetFarmRequest.js";
 export { type DexSimulateLiquidityProvisionRequest } from "./DexSimulateLiquidityProvisionRequest.js";
 export { type GetMarketListRequest } from "./GetMarketListRequest.js";
 export { type PoolQueryRequest } from "./PoolQueryRequest.js";
 export { type GetPoolListRequest } from "./GetPoolListRequest.js";
+export { type GetPoolListByMarketRequest } from "./GetPoolListByMarketRequest.js";
+export { type GetPoolRequest } from "./GetPoolRequest.js";
 export { type DexReverseSimulateSwapUtoipaRequest } from "./DexReverseSimulateSwapUtoipaRequest.js";
 export { type GetRouterListRequest } from "./GetRouterListRequest.js";
+export { type GetRouterRequest } from "./GetRouterRequest.js";
 export { type DexSimulateSwapUtoipaRequest } from "./DexSimulateSwapUtoipaRequest.js";
 export { type DexSwapStatusRequest } from "./DexSwapStatusRequest.js";

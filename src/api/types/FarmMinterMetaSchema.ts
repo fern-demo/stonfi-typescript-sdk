@@ -4,12 +4,13 @@
 
 export interface FarmMinterMetaSchema {
     /** Description */
-    description?: string;
+    description?: string | null;
     /** Image */
-    image?: string;
+    image?: string | null;
     /** Marketplace */
-    marketplace?: string;
+    marketplace?: string | null;
     /** Name */
-    name?: string;
+    name?: string | null;
+    /** Social links */
     social_links?: unknown;
 }

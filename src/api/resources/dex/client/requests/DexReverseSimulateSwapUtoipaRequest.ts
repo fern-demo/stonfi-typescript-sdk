@@ -8,8 +8,7 @@
  *         offer_address: "EQBynBO23ywHy_CgarY9NK9FTz0yDsG82PtcbSTQgGoXwiuA",
  *         ask_address: "EQCM3B12QK1e4yZSf8GtBRT0aLMNyEsBc_DhVfRRtOEffLez",
  *         units: "300",
- *         slippage_tolerance: "0.001",
- *         pool_address: "EQAKleHU6-eGDQUfi4YXMNve4UQP0RGAIRkU4AiRRlgDUbaM"
+ *         slippage_tolerance: "0.001"
  *     }
  */
 export interface DexReverseSimulateSwapUtoipaRequest {
@@ -29,19 +28,19 @@ export interface DexReverseSimulateSwapUtoipaRequest {
      * The maximum possible difference between the rates that we expect and which will actually be, in fractions (for example, 0.001 is 0.1%)
      */
     slippage_tolerance: string;
-    pool_address?: string;
+    pool_address?: string | null;
     /**
      * Referral address
      */
-    referral_address?: string;
+    referral_address?: string | null;
     /**
      * Referral fee in base points
      */
-    referral_fee_bps?: string;
+    referral_fee_bps?: string | null;
     /**
      * If true V2 routers might be selected for the swap. Default: true
      */
-    dex_v2?: boolean;
+    dex_v2?: boolean | null;
     /**
      * Allows to restrict exact DEX version (or multiple)
      */

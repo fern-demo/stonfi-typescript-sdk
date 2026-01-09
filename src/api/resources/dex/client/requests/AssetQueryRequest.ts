@@ -10,7 +10,7 @@ export interface AssetQueryRequest {
     /**
      * Condition
      */
-    condition?: string;
+    condition?: string | null;
     /**
      * Unconditional assets
      */
@@ -18,5 +18,5 @@ export interface AssetQueryRequest {
     /**
      * Wallet address
      */
-    wallet_address?: string;
+    wallet_address?: string | null;
 }

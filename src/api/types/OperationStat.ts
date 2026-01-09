@@ -24,7 +24,7 @@ export interface OperationStat {
     /** Operation exit code */
     exit_code: string;
     /** Liquidity pool fee asset address */
-    fee_asset_address?: string;
+    fee_asset_address?: string | null;
     /** Liquidity pool fee amount */
     lp_fee_amount: string;
     /** Liquidity pool token amount change */
@@ -44,7 +44,7 @@ export interface OperationStat {
     /** Protocol fee amount */
     protocol_fee_amount: string;
     /** Referral fee address */
-    referral_address?: string;
+    referral_address?: string | null;
     /** Referral fee amount */
     referral_fee_amount: string;
     /** Address of the router */

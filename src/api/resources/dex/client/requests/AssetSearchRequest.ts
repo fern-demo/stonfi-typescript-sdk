@@ -16,7 +16,7 @@ export interface AssetSearchRequest {
     /**
      * Condition
      */
-    condition?: string;
+    condition?: string | null;
     /**
      * Unconditional assets
      */
@@ -24,9 +24,9 @@ export interface AssetSearchRequest {
     /**
      * Limit of assets in the response
      */
-    limit?: number;
+    limit?: number | null;
     /**
      * Wallet address
      */
-    wallet_address?: string;
+    wallet_address?: string | null;
 }

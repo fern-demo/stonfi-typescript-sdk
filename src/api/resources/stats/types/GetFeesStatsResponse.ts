@@ -9,9 +9,9 @@ export interface GetFeesStatsResponse {
     /** Time since the stats are requested (YYYY-MM-DDTHH:MM:SS) */
     since: string;
     /** Sum of deposits in usd over the set time period */
-    total_accrued_usd?: string;
+    total_accrued_usd?: string | null;
     /** Sum of withdrawals in usd over the set time period */
-    total_withdrawn_usd?: string;
+    total_withdrawn_usd?: string | null;
     /** Time until the stats are requested (YYYY-MM-DDTHH:MM:SS) */
     until: string;
 }

@@ -17,10 +17,7 @@ describe("Stats", () => {
         };
         server.mockEndpoint().get("/v1/stats/dex").respondWith().statusCode(200).jsonBody(rawResponseBody).build();
 
-        const response = await client.stats.getDexStats({
-            since: "2023-06-01T12:34:56",
-            until: "2023-06-02T23:59:59",
-        });
+        const response = await client.stats.getDexStats();
         expect(response).toEqual({
             since: "since",
             stats: {

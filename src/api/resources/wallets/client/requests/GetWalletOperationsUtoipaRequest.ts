@@ -5,11 +5,13 @@
 /**
  * @example
  *     {
+ *         addr_str: "addr_str",
  *         since: "2023-06-01T12:34:56",
  *         until: "2023-06-02T23:59:59"
  *     }
  */
 export interface GetWalletOperationsUtoipaRequest {
+    addr_str: string;
     /**
      * Time since the stats are requested (YYYY-MM-DDTHH:MM:SS)
      */
@@ -25,5 +27,5 @@ export interface GetWalletOperationsUtoipaRequest {
     /**
      * If true V2 pool operations will be present in the response. Default: true
      */
-    dex_v2?: boolean;
+    dex_v2?: boolean | null;
 }
